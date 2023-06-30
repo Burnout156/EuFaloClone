@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EuFaloCloneBiblioteca.Models.Contato>
+
+@{
+    ViewData["Title"] = "Pesquisar";
+}
+
+<h1>Pesquisar Contatos</h1>
+
+<form method="get">
+    <div class="form-group">
+        <label>Pesquisar por nome ou CPF:</label>
+        <input type="text" name="term" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Pesquisar</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <!-- Adicione mais colunas conforme necessário -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contato in Model)
+            {
+                <tr>
+                    <td>@contato.Nome</td>
+                    <td>@contato.CPF</td>
+                    <!-- Adicione mais colunas conforme necessário -->
+                    <td>
+                        <a href="@Url.Action("Compras", new { contatoId = contato.ContatoId })" class="btn btn-link">Mostrar Compras</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhum contato encontrado.</p>
+}

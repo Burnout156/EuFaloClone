@@ -1,0 +1,33 @@
+# Visual Studio temporary files
+.vs/
+
+# build output
+bin/
+obj/
+
+# local development files
+appsettings.Development.json
+launchSettings.json
+
+# NuGet package directories
+**/bin/
+**/obj/
+
+# MVC-specific files
+wwwroot/
+
+# SQLite database files
+*.db
+
+# Visual Studio code coverage files
+*.coverage
+*.coveragexml
+*.dotcover
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
