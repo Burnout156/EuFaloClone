@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EuFaloCloneBiblioteca.Models.VendaDetalheContato>
+
+@{
+    ViewData["Title"] = "Itens de Compra";
+}
+
+<h1>Itens de Compra</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+                <!-- Adicione mais colunas conforme necessário -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var itemCompra in Model)
+            {
+                <tr>
+                    <td>@itemCompra.Produto?.NomeProduto</td>
+                    <td>@itemCompra.Quantidade</td>
+                    <td>@itemCompra.Valor.ToString("C")</td>
+                    <!-- Adicione mais colunas conforme necessário -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhum item encontrado para essa compra.</p>
+}

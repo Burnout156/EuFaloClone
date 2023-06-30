@@ -5,7 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddDbContext<GerenciadorDbContext>();
 
 var app = builder.Build();
@@ -27,5 +26,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Contato}/{action=Pesquisar}/{id?}");
+
+app.MapControllerRoute(
+    name: "venda",
+    pattern: "{controller=Venda}/{action=ItensCompra}/{vendaContatoId}");
 
 app.Run();

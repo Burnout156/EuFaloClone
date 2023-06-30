@@ -15,16 +15,19 @@
                 <th>Quantidade</th>
                 <th>Valor</th>
                 <!-- Adicione mais colunas conforme necessário -->
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var vendaDetalhe in Model.VendaDetalheContatos)
             {
                 <tr>
-                    <td>@vendaDetalhe.Produto.NomeProduto</td>
+                    <td>@vendaDetalhe.Produto?.NomeProduto</td>
                     <td>@vendaDetalhe.Quantidade</td>
                     <td>@vendaDetalhe.Valor.ToString("C")</td>
-                    <!-- Adicione mais colunas conforme necessário -->
+                    <td>
+                        <a href="@Url.Action("ItensCompra", "Venda", new { produtoId = vendaDetalhe.ProdutoId })" class="btn btn-link">Mostrar Itens</a>
+                    </td>
                 </tr>
             }
         </tbody>

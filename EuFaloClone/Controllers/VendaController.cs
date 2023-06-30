@@ -13,13 +13,17 @@ namespace EuFaloClone.Controllers
             db = dbContext;
         }
 
-        public ActionResult Detalhes(int vendaContatoId)
+        public ActionResult ItensCompra(int produtoId)
         {
             var itensVenda = db.VendaDetalheContato
-                .Where(v => v.VendaContatoId == vendaContatoId)
+                .Where(v => v.ProdutoId == produtoId)
                 .Include(v => v.Produto)
                 .ToList();
             return View(itensVenda);
         }
+
+
+
+
     }
 }
