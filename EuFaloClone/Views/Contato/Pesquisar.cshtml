@@ -6,22 +6,24 @@
 
 <h1>Pesquisar Contatos</h1>
 
-<form method="get">
-    <div class="form-group">
+<form class="form-group" method="get">
+    <div class="form-group mb-3">
         <label>Pesquisar por nome ou CPF:</label>
-        <input type="text" name="term" class="form-control" />
+        <input type="text" name="term" class="form-control" oninput="submit()"/>
     </div>
     <button type="submit" class="btn btn-primary">Pesquisar</button>
 </form>
 
-@if (Model != null && Model.Any())
+@if (Model != null)
 {
-    <table class="table">
+   if (Model.Any())
+   {
+        <table class="table">
         <thead>
             <tr>
                 <th>Nome</th>
                 <th>CPF</th>
-                <!-- Adicione mais colunas conforme necessário -->
+             
             </tr>
         </thead>
         <tbody>
@@ -29,17 +31,18 @@
             {
                 <tr>
                     <td>@contato.Nome</td>
-                    <td>@contato.CPF</td>
-                    <!-- Adicione mais colunas conforme necessário -->
+                    <td>@contato.CPF</td>                
                     <td>
                         <a href="@Url.Action("Compras", new { contatoId = contato.ContatoId })" class="btn btn-link">Mostrar Compras</a>
                     </td>
                 </tr>
             }
         </tbody>
-    </table>
-}
-else
-{
-    <p>Nenhum contato encontrado.</p>
+        </table>
+   }
+   
+   else
+   {
+       <p>Nenhum contato encontrado.</p>
+   }
 }

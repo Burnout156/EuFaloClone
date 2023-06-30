@@ -14,6 +14,6 @@ namespace EuFaloCloneBiblioteca.Models
         public decimal Valor { get; set; }
 
         public Contato? Contato { get; set; }
-        public List<VendaDetalheContato>? VendaDetalheContatos { get; set; }
+        public List<VendaDetalheContato> VendaDetalheContatos { get; set; }
     }
 }
