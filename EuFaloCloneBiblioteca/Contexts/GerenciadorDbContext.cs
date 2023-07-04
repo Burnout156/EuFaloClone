@@ -7,6 +7,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
+//privado para sempre
 namespace EuFaloCloneBiblioteca.Contexts
 {
     public class GerenciadorDbContext : DbContext
